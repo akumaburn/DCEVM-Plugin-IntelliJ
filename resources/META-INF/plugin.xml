@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>dcevm-plugin</id>
+    <name>DCEVM Integration</name>
+    <version>2.0.0</version>
+    <vendor email="alephmim@protonmail.com">Amir Eslampanah</vendor>
+
+    <description><![CDATA[
+      This is an [IntelliJ IDEA plugin](https://github.com/akumaburn/DCEVM-IntelliJ-Plugin)
+      which provides integration with **DCEVM - an OpenJDK-based JVM** that allows for **Java Hot Swapping**
+      Targets **JDK 11 ONLY** currently.
+      \n
+
+      Simply choose one of the options in the event log and click the upper right button to enable hotswap for all your currently open projects.
+      ]]></description>
+
+    <change-notes><![CDATA[
+      Major Refactor/Re-write
+      Added Automatic Enabling of DCE-VM
+      More bug fixes
+      Updated to DCEVM 11.0.8
+      ]]>
+    </change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="202"/>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.eonmux.dcevm.Startup"/>
+        <jreProvider implementation="com.eonmux.dcevm.JdkProvider"/>
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+</idea-plugin>
